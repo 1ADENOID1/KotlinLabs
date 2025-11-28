@@ -1,6 +1,7 @@
 
 fun main() {
     println("Hello world");
+    println("aaa")
 
     val inputNum : Int = 4;
     var result : Int = 1;
