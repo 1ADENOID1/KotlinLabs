@@ -27,6 +27,7 @@ class app1 {
 }
 
 fun main() {
+    println("aaaaaaa")
     val app = app1()
     app.main()
 }
