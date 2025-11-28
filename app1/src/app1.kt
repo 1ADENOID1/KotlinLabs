@@ -25,3 +25,8 @@ class app1 {
         println("Sorted list: " + myList);
     }
 }
+
+fun main() {
+    val app = app1()
+    app.main()
+}
