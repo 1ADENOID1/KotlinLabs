@@ -26,7 +26,7 @@ fun main(args: Array<String>) {
     func(args[0])
     val res = getFactorial(4)
     println(res)
-    println(getFactorial())
+    println(getFactorial() )
     println(getRandomFactorial())
 
     val num = 4
