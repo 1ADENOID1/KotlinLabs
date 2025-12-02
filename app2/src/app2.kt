@@ -27,7 +27,7 @@ fun main(args: Array<String>) {
     val res = getFactorial(4)
     println(res)
     println(getFactorial())
-    println(getRandomFactorial() )
+    println(getRandomFactorial())
 
     val num = 4
     val sqrLambda = { result: Int -> num * num}
