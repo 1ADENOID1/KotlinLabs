@@ -67,6 +67,7 @@ fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
         )
         Text(
             text = message,
+            color = Color.Red,
             fontSize = 70.sp,
             lineHeight = 100.sp,
             textAlign = TextAlign.Center
@@ -175,6 +176,6 @@ fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) 
 @Composable
 fun GreetingPreview() {
     MyApplicationTheme {
-        GreetingImage(message = "Лёха ВАЛ", from = "канал")
+        GreetingBirthday("Happy Birthday", "Lexa")
     }
 }
