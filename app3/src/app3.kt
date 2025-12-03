@@ -13,7 +13,7 @@ abstract class Vehicle {
     }
 }
 
-class Car(color: String): Vehicle() {
+class Car(color: String ): Vehicle() {
     override val speed = Random.nextInt(50, 150)
     val color = color
 
