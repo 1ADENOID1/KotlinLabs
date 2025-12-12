@@ -13,21 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-pluginManagement {
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-rootProject.name = "Affirmations"
-include(":app")
-include(":app:courses")
-include(":app:woof")
+package com.example.woof.ui.theme
+
+/*
+val md_theme_light_background = Color(0xFFFBFCFE)
+val md_theme_light_surfaceVariant = Color(0xFFE7E0EC)
+val md_theme_light_onSurfaceVariant = Color(0xFF49454f)
+
+val md_theme_dark_background = Color(0xFF191C1D)
+val md_theme_dark_surfaceVariant = Color(0xFF49454f)
+val md_theme_dark_onSurfaceVariant = Color(0xFFCAC4D0)
+*/

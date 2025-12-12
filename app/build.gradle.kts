@@ -1,5 +1,3 @@
-import org.gradle.kotlin.dsl.invoke
-
 /*
  * Copyright (C) 2023 The Android Open Source Project
  *
@@ -22,7 +20,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.affirmations"
+    namespace = "com.example.woof"
     compileSdk = 35
 
     defaultConfig {
