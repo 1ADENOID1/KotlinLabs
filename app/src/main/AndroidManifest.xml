@@ -52,7 +52,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Superhero.MainActivity"
+            android:name=".superhero.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Affirmations">
             <intent-filter>
@@ -61,7 +61,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Days.MainActivity"
+            android:name=".days.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Affirmations">
             <intent-filter>

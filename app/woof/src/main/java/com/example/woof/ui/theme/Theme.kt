@@ -127,7 +127,7 @@ fun AffirmationsTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = com.example.woof.ui.theme.Typography,
+        typography = Typography,
         shapes = Shapes,
         content = content
     )

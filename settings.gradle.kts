@@ -31,3 +31,5 @@ rootProject.name = "Affirmations"
 include(":app")
 include(":app:courses")
 include(":app:woof")
+include(":app:days")
+include(":app:superhero")
