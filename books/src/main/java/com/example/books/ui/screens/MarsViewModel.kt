@@ -1,4 +1,4 @@
-package com.example.mars.ui.screens
+package com.example.books.ui.screens
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -9,12 +9,10 @@ import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.AP
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import com.example.mars.MarsPhotosApplication
-import com.example.mars.data.MarsPhotosRepository
-import com.example.mars.data.NetworkMarsPhotosRepository
-import com.example.mars.network.MarsPhoto
+import com.example.books.MarsPhotosApplication
+import com.example.books.data.MarsPhotosRepository
+import com.example.books.network.MarsPhoto
 import kotlinx.coroutines.launch
-import retrofit2.HttpException
 import java.io.IOException
 
 

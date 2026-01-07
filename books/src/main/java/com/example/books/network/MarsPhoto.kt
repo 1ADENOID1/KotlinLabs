@@ -1,4 +1,4 @@
-package com.example.mars.network
+package com.example.books.network
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

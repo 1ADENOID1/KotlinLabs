@@ -1,15 +1,14 @@
-package com.example.mars.network
+package com.example.books.network
 
 
-import com.example.mars.data.AppContainer
-import com.example.mars.data.MarsPhotosRepository
-import com.example.mars.data.NetworkMarsPhotosRepository
+import com.example.books.data.AppContainer
+import com.example.books.data.MarsPhotosRepository
+import com.example.books.data.NetworkMarsPhotosRepository
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
 import retrofit2.http.GET
-import retrofit2.http.Path
 
 class DefaultAppContainer : AppContainer {
     private val BASE_URL =
