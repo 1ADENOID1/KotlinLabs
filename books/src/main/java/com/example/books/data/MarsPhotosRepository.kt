@@ -1,14 +1,27 @@
 package com.example.books.data
 
+import com.example.books.network.BookVolume
+import com.example.books.network.Item
 import com.example.books.network.MarsApiService
-import com.example.books.network.MarsPhoto
+
 
 interface MarsPhotosRepository {
-    suspend fun getMarsPhotos(): List<MarsPhoto>
+
+    suspend fun getBookIds(): List<Item>
+    suspend fun getBookImages(id: String): BookVolume
+
 }
 
 class NetworkMarsPhotosRepository(
     private val marsApiService: MarsApiService
 ) : MarsPhotosRepository {
-    override suspend fun getMarsPhotos(): List<MarsPhoto> = marsApiService.getPhotos()
+    override suspend fun getBookIds(): List<Item> {
+        val booksInfo = marsApiService.getBooks()
+        return booksInfo.items
+    }
+
+    override suspend fun getBookImages(id: String): BookVolume {
+        return marsApiService.getImage(id)
+
+    }
 }

@@ -27,8 +27,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import com.example.books.network.ImageLink
 import com.example.mars.R
-import com.example.books.network.MarsPhoto
+
 
 @Composable
 fun HomeScreen(
@@ -84,14 +85,14 @@ fun ResultScreen(photos: String, modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun MarsPhotoCard(photo: MarsPhoto, modifier: Modifier = Modifier) {
+fun MarsPhotoCard(photo: ImageLink, modifier: Modifier = Modifier) {
     Card(
         modifier = modifier,
         elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
     ) {
         AsyncImage(
             model = ImageRequest.Builder(context = LocalContext.current)
-                .data(photo.img_src)
+                .data(photo.thumbnail.replace("http", "https"))
                 .crossfade(true)
                 .build(),
             error = painterResource(R.drawable.ic_broken_image),
@@ -105,7 +106,7 @@ fun MarsPhotoCard(photo: MarsPhoto, modifier: Modifier = Modifier) {
 
 @Composable
 fun PhotosGridScreen(
-    photos: List<MarsPhoto>,
+    photos: List<ImageLink>,
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(0.dp),
 ) {
@@ -114,7 +115,7 @@ fun PhotosGridScreen(
         modifier = modifier.padding(horizontal = 4.dp),
         contentPadding = contentPadding,
     ) {
-        items(items = photos, key = { photo -> photo.id }) {
+        items(items = photos, key = { photo -> photo.thumbnail }) {
                 photo -> MarsPhotoCard(
             photo,
             modifier = modifier

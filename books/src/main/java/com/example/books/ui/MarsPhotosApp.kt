@@ -36,7 +36,7 @@ fun MarsPhotosApp() {
                 viewModel(factory = MarsViewModel.Factory)
             HomeScreen(
                 marsUiState = marsViewModel.marsUiState,
-                retryAction = marsViewModel::getMarsPhotos
+                retryAction = { marsViewModel.getBookList() }
             )
         }
     }

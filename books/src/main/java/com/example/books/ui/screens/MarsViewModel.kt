@@ -11,7 +11,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.books.MarsPhotosApplication
 import com.example.books.data.MarsPhotosRepository
-import com.example.books.network.MarsPhoto
+import com.example.books.network.ImageLink
 import kotlinx.coroutines.launch
 import java.io.IOException
 
@@ -20,7 +20,7 @@ import java.io.IOException
  * UI state for the Home screen
  */
 sealed interface MarsUiState {
-    data class Success(val photos: List<MarsPhoto>) : MarsUiState
+    data class Success(val photos: List<ImageLink>) : MarsUiState
     object Error : MarsUiState
     object Loading : MarsUiState
 }
@@ -34,21 +34,32 @@ class MarsViewModel(private val marsPhotosRepository: MarsPhotosRepository) : Vi
      * Call getMarsPhotos() on init so we can display status immediately.
      */
     init {
-        getMarsPhotos()
+        //getMarsPhotos()
+        getBookList()
     }
 
     /**
      * Gets Mars photos information from the Mars API Retrofit service and updates the
      * [MarsPhoto] [List] [MutableList].
      */
-    fun getMarsPhotos() {
-        viewModelScope.launch {
-            marsUiState = try {
-                MarsUiState.Success(marsPhotosRepository.getMarsPhotos())
-            } catch (e: IOException) {
-                MarsUiState.Error
+
+    fun getBookList() {
+
+            val photos = mutableListOf<ImageLink>()
+            viewModelScope.launch {
+                marsUiState = try {
+                    val ids = marsPhotosRepository.getBookIds()
+                    for (i in ids) {
+                        val photo = marsPhotosRepository.getBookImages(i.id)
+                        photos.add(photo.volumeInfo.imageLinks)
+                    }
+                    println(photos)
+                    MarsUiState.Success(photos)
+                } catch (e: IOException) {
+                    MarsUiState.Error
+                }
             }
-        }
+
     }
 
     companion object {

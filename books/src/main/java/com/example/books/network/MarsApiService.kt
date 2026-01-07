@@ -9,10 +9,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 class DefaultAppContainer : AppContainer {
     private val BASE_URL =
-        "https://android-kotlin-fun-mars-server.appspot.com"
+        "https://www.googleapis.com/books/v1/"
 
     private val retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())    // Конвертер из урока не хотел работать, заменил на православный Gson
@@ -28,7 +29,11 @@ class DefaultAppContainer : AppContainer {
     }
 }
 interface MarsApiService {
-    @GET("photos")
-    suspend fun getPhotos(): List<MarsPhoto>
+
+    @GET("volumes?q=jazz+history")
+    suspend fun getBooks(): BooksInfo
+
+    @GET("volumes/{id}")
+    suspend fun getImage(@Path("id") id: String): BookVolume
 }
 
